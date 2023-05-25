@@ -120,4 +120,4 @@ make install
 If you need more help, please go to <https://docs.osmosis.zone> or join
 our discord at <https://discord.gg/pAxjcFnAFH>.
 
-# sub fodler testing
+# sub fodler testing v1
