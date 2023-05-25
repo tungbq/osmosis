@@ -239,3 +239,5 @@ The pre-release testing methodology planned for the twap module is:
     - We've seen with the `tokenfactory` module that it succeeds at surfacing behavior for untested logic.
         e.g. if you delete a line, or change the direction of a conditional, mutation tests show if regular Go tests catch it.
     - We expect to get this to a state, where after mutation testing is ran, the only items it mutates, that is not caught in a test, is: Deleting `return err`, or `panic` lines, in the situation where that error return or panic isn't reachable.
+
+# Testing readme in sub folder
