@@ -5,6 +5,9 @@ on:
     types: [opened, labeled, unlabeled, synchronize]
     branches:
       - 'main'
+  push:
+    branches:
+      - "improve-changelog"
 jobs:
   state_compatability_labels:
     runs-on: ubuntu-latest
@@ -21,7 +24,7 @@ jobs:
 
       - name: List all files
         run: |
-            echo "${{ steps.changed-files.outputs }}"
+            echo "${{ steps.changed-files.outputs.any_changed }}"
 
       - name: Check required labels
         if: steps.changed-files.outputs.any_changed == 'true'
