@@ -4,9 +4,6 @@ on:
     types: [assigned, opened, synchronize, reopened, labeled, unlabeled]
     branches:
       - main
-  push:
-    branches:
-      - "improve-changelog"
 
 jobs:
   build:
