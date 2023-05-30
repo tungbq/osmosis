@@ -19,10 +19,6 @@ jobs:
           files_ignore: |
             **/*.md
 
-      - name: List all files
-        run: |
-            echo "${{ steps.changed-files.outputs.any_changed }}"
-
       - name: Check required labels
         if: |
           steps.changed-files.outputs.any_changed == 'true' ||
@@ -30,8 +26,8 @@ jobs:
           steps.changed-files.outputs.any_modified == 'true'
         uses: mheap/github-action-required-labels@v4
         env:
-            GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
         with: #Require one of the following labels
           mode: exactly
           count: 1
-          labels: "V:state/breaking, V:state/compatible/no_backport, V:state/compatible/backport"
+          labels: 'V:state/breaking, V:state/compatible/no_backport, V:state/compatible/backport'

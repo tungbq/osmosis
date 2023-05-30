@@ -19,12 +19,6 @@ jobs:
           files_ignore: |
             **/**.md
 
-      - name: List all files
-        run: |
-            echo "${{ steps.changed-files.outputs.any_changed }}"
-            echo "${{ steps.changed-files.outputs.any_deleted }}"
-            echo "${{ steps.changed-files.outputs.any_modified }}"
-
       - name: Changelog check
         if: |
           steps.changed-files.outputs.any_changed == 'true' ||
