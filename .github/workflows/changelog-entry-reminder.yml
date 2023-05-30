@@ -17,7 +17,7 @@ jobs:
         uses: tj-actions/changed-files@9328bab880abf4acc377d77718d28c6ac167f154 # v35.7.2
         with:
           files_ignore: |
-            .github/workflows/*
+            # .github/workflows/*
             **/**.md
 
       - name: List all files
