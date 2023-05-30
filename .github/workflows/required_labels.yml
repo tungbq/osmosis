@@ -17,6 +17,7 @@ jobs:
         uses: tj-actions/changed-files@v36.0.9
         with:
           files_ignore: |
+            .github/workflows/*
             **/*.md
 
       - name: Check required labels
