@@ -23,6 +23,10 @@ jobs:
             .github/workflows/**
             **/**.md
 
+      - name: List all files
+        run: |
+            echo "${{ steps.changed-files.outputs }}"
+
       - name: Changelog check
         if: steps.changed-files.outputs.any_changed != 'true'
         uses: Zomzog/changelog-checker@v1.3.0
