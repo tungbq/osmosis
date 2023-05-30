@@ -23,7 +23,7 @@ jobs:
         uses: mheap/github-action-required-labels@v4
         env:
             GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          with: #Require one of the following labels
-            mode: exactly
-            count: 1
-            labels: "V:state/breaking, V:state/compatible/no_backport, V:state/compatible/backport"
+        with: #Require one of the following labels
+          mode: exactly
+          count: 1
+          labels: "V:state/breaking, V:state/compatible/no_backport, V:state/compatible/backport"
