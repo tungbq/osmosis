@@ -9,10 +9,21 @@ jobs:
   state_compatability_labels:
     runs-on: ubuntu-latest
     steps:
-      - uses: mheap/github-action-required-labels@v4
+      - uses: actions/checkout@v3
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@9328bab880abf4acc377d77718d28c6ac167f154 # v35.7.2
+        with:
+          files: |
+            .github/workflows/**
+            **/**.md
+
+      - name: Check required labels
+        if: steps.changed-files.outputs.any_changed != 'true'
+        uses: mheap/github-action-required-labels@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
-        with: #Require one of the following labels
-          mode: exactly
-          count: 1
-          labels: "V:state/breaking, V:state/compatible/no_backport, V:state/compatible/backport"
+            GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          with: #Require one of the following labels
+            mode: exactly
+            count: 1
+            labels: "V:state/breaking, V:state/compatible/no_backport, V:state/compatible/backport"
